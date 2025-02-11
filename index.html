@@ -7,10 +7,29 @@
 </head>
 <body>
   <h1>Welcome to the Second Story</h1>
-  <p>You have arrived at the next chapter of the adventure!</p>
-  <ul>
-    <li><a href="first_story.html">Go back to the first story</a></li>
-    <li><a href="javascript:alert('You decided to end the journey here!');">End the journey</a></li>
-  </ul>
+  
+  <div id="story"></div>
+
+  <script>
+    // Get the URL query parameter
+    const urlParams = new URLSearchParams(window.location.search);
+    const choice = urlParams.get('choice');
+    
+    let storyContent = "";
+    
+    if (choice === 'A') {
+      storyContent = "<p>You chose the forest path. The trees are dense and the air is fresh.</p>";
+    } else if (choice === 'B') {
+      storyContent = "<p>You chose to climb the mountain. The view is breathtaking, but the path is steep.</p>";
+    } else if (choice === 'C') {
+      storyContent = "<p>You chose to cross the river. The water is cold, but the crossing is peaceful.</p>";
+    } else {
+      storyContent = "<p>It seems like you didn't choose an option. Please go back and select one.</p>";
+    }
+
+    // Display the story based on the choice
+    document.getElementById("story").innerHTML = storyContent;
+  </script>
+  
 </body>
 </html>
